@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<conio.h>
+#include<ctype.h>
+#define MAX 100
+
+int priority(char);
+int empty(stack *);
+int full(stack *);
+char top(stack *);
+
+void main()
+{
+stack s;
+char x;
+int token;
+init(&s);
+clrscr();
+printf("nEnter infix expression:");
+  while((token=getchar())!='n')
+  {
+    if(isalnum(token))
+       printf("%c",token);
+    else
+       if(token == '(')
+           push(&s,'(');
+       else
+       {
+         if(token == ')')
+             while((x=pop(&s))!='(')
+             printf("%c",x);
+         else
+         {
+         while(priority(token)< =priority(top(&s)) && !empty(&s))
+             {
+             x=pop(&s);
+             printf("%c",x);
+             }
+         push(&s,token);
+         }
+       }
+  }
+  while(!empty(&s))
+    {
+    x=pop(&s);
+    printf("%c",x);
+    }
+getch();
+}
+
+int priority(char x)
+{
+   if(x == '(')
+ return(0);
+   if(x == '+' || x == '-')
+ return(1);
+   if(x == '*' || x == '/' || x == '%')
+ return(2);
+   return(3);
+}
+

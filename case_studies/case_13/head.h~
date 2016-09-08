@@ -1,0 +1,14 @@
+struct contacts {
+	char name[20], addrs[50], email[20];
+	int number;
+};
+
+void readContact();
+
+void readContact() {
+	FILE *file;
+	file = fopen("contacts.ct", "r");
+		
+}
+
+

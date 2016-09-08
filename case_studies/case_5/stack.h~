@@ -1,0 +1,38 @@
+#define MAX 20
+
+struct stack {
+	char data[MAX];
+	int  top;
+} st;
+
+void initStack();
+void push(char);
+char pop();
+int isEmpty();
+int isFull();
+char peak();
+
+void initStack() {
+
+	st.top = -1;
+}
+
+void push(int n) {
+
+	st.data[++st.top] = n;
+}
+
+char pop() {
+
+	return st.data[st.top--];
+}
+
+int isEmpty() {
+	
+	return st.top == -1;
+
+}
+
+int isFull() {
+	
+	return st.top == MAX - 1

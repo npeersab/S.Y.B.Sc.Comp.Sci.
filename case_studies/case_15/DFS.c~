@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int graph[10][10], visited[10], n;
+	
+main() {
+	
+	int v;
+	
+	initVisited();
+	printf("Enter no. of vertices : ");
+	scanf("%d", &n);
+	acceptGraph(); 
+	printf("Enter start vertex : ");
+	DFS(v);
+}
+
+

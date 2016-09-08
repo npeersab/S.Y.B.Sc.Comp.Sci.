@@ -1,0 +1,56 @@
+/* c program to implement singly linked list*/
+
+main()
+{
+	int n,choice;
+	while(1)
+	{
+		printf("\n1.Create linked list \n2.Display linked list\n3.Count nodes\n4.Add node after item\n5.Check list is empty or not\n6.Remove last node\n7.Remove first node\n8.Reset linked list\n9.Exit\nSelect option: ");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:
+				printf("\nEnter size of linked list: ");
+				scanf("%d",&n);
+				create(n);
+				break;
+			case 2:
+				if(!is_empty())
+				{
+					printf("\nLinked list is: ");
+					display();
+				}
+				break;
+			case 3:
+				if(!is_empty())
+					printf("\nThere is/are %d nodes in linked list\n",count_node());
+				break;
+			case 4:
+				printf("\nEnter item: ");
+				scanf("%d",&n);
+				add_after(n);
+				break;
+			case 5:
+				if(!is_empty())
+					printf("\nlist is not empty...\n");
+				break;
+			case 6:
+				if(!is_empty())
+					printf("\n%d removed from the list...\n",remove_last());
+				break;
+			case 7:
+				if(!is_empty())
+					printf("\n%d removed from the list...\n",remove_head());
+				break;
+			case 8:
+				reset();
+				printf("\nReset Complete...\n");
+				break;
+			case 9:
+				exit(0);
+			default:
+				printf("\nInvalid option...\n");
+		}
+	}
+}
+

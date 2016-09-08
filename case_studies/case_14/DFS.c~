@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int graph[10][10], visited[10], n;
+	
+main() {
+	
+	int v;
+	void acceptGraph();
+	void initVisited();
+	void DFS(int);
+	
+	initVisited();
+	printf("Enter no. of vertices : ");
+	scanf("%d", &n);
+	acceptGraph(); 
+	printf("Enter start vertex : ");
+	DFS(v);
+}
+
+void acceptGraph() {
+
+	int i, j;
+
+	printf("Enter adjacency matrix :\n");
+	for(i = 0; i < n; i++)
+		for(j = 0; j < n; j++)
+			scanf("%d", &graph[i][j]);
+}
+
+void initVisited() {
+	
+	int i;
+	
+	for(i = 0; i < n; i++)
+		visited[i] = 0;
+}
+
+void DFS(int i) {
+	
+	int j;
+
+	visited[i] = 1;
+	for(j = 0; j < n; j++)
+		if((!visited[j]) && graph[i][j])
+			DFS(j);
+}
